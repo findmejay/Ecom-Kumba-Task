@@ -34,6 +34,7 @@ export default async function Home() {
                   width={300}
                   height={200}
                   className="bg-[#f5f5f5] h-auto w-full object-cover rounded "
+                  loading="eager"
                 ></Image>
                 <div className="flex flex-col justify-center items-center">
                   <h2 className="mt-2 font-semibold line-clamp-1">{product.title}</h2>{" "}

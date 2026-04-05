@@ -19,7 +19,7 @@ export default function ProductPage({ params }) {
       console.log(data);
 
       setProduct(data);
-      setImage(data.images);
+      setImage(data.images[0]);
     }
 
     fetchProduct();
@@ -35,7 +35,7 @@ export default function ProductPage({ params }) {
 
       <div>
         <img
-          src={image || product.image}
+          src={image || product.thumbnail}
           alt={product.title}
           className="h-auto max-sm:w-full sm:w-180 md:w-190 lg:w-[72vw] object-cover rounded bg-[#e6e6e6]"
           loading="eager"

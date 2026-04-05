@@ -3,6 +3,7 @@
 import "@pqina/pintura/pintura.css";
 
 export default function PinturaEditor({ imageUrl, setImage }) {
+    console.log(imageUrl);
   const openEditor = async () => {
     const pintura = await import("@pqina/pintura");
 
