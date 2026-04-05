@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-export default function AddToCart({product}){
+export default function AddToCart({product, onAdd}){
     const [added, setAdded] = useState(false);
     console.log(product)
 
@@ -12,6 +12,7 @@ export default function AddToCart({product}){
         localStorage.setItem("cart", JSON.stringify(cart));
 
         setAdded(true);
+        onAdd();
     }
 
     return(

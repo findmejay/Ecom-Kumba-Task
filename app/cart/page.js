@@ -32,7 +32,8 @@ export default function CartPage() {
       <h1 className="text-[2rem] font-extrabold mb-12">Cart</h1>
 
       {cart.length === 0 ? (
-        <p>Your Cart is Empty</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/9374/9374328.png" alt="empty cart" className="h-50 w-50 object-cover max-sm:h-25 max-sm:w-25 sm:h-35 sm:w-35 md:h-45 md:w-45 mt-55"/>
+        
       ) : (
         <div className="flex max-sm:w-80 sm:w-100 md:w-120 lg:w-180 flex-col gap-4">
           {cart.map((item, idx) => (

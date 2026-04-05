@@ -11,6 +11,7 @@ export default function ProductPage({ params }) {
 
   const [product, setProduct] = useState([]);
   const [image, setImage] = useState("");
+  const [added, setAdded] = useState(false);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -44,7 +45,17 @@ export default function ProductPage({ params }) {
 
       <div className="max-sm:block md:hidden lg:hidden xl:hidden sm:hidden">
         <PinturaEditor imageUrl={image} setImage={setImage} />
-        <AddToCart />
+        {!added ? (
+          <AddToCart product={product} onAdd={() => setTimeout(()=>{setAdded(true)},800)} />
+        ) : (
+          <Link href="/cart" className="mt-4 rounded-sm sm:text-[0.875rem] lg:text-[1.1rem] w-full bg-linear-to-r from-[#E2A4DD] to-[#F9C383] text-[#1e1e1e] flex justify-center items-center px-4 py-2">
+            <button >
+              {" "}
+              <i className="ri-shopping-bag-line p-0 m-0"></i>
+              <span className="leading-0 text-[1rem]">Go To Cart</span>
+            </button>
+          </Link>
+        )}
       </div>
 
       <div className="flex flex-col sm:gap-2 lg:gap-4 max-sm:mt-6 sm:px-4 lg:px-14 ">
@@ -59,7 +70,17 @@ export default function ProductPage({ params }) {
         </h2>
         <div className="max-sm:hidden">
           <PinturaEditor imageUrl={image} setImage={setImage} />
-          <AddToCart product={product}/>
+          {!added ? (
+            <AddToCart product={product} onAdd={() => setTimeout(()=>{setAdded(true)},800)} />
+          ) : (
+            <Link href="/cart">
+              <button className="mt-4 rounded-sm sm:text-[0.875rem] lg:text-[1.1rem] w-full bg-linear-to-r from-[#E2A4DD] to-[#F9C383] text-[#1e1e1e] flex justify-center items-center px-4 py-2">
+                {" "}
+                <i className="ri-shopping-bag-line p-0 m-0"></i>
+                <span className="leading-0 text-[1rem]">Go To Cart</span>
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
