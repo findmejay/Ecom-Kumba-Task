@@ -33,7 +33,7 @@ export default async function Home() {
                   alt={product.title}
                   width={300}
                   height={200}
-                  className="bg-[#f5f5f5] h-50 w-full object-cover rounded "
+                  className="bg-[#f5f5f5] h-auto w-full object-cover rounded "
                 ></Image>
                 <div className="flex flex-col justify-center items-center">
                   <h2 className="mt-2 font-semibold line-clamp-1">{product.title}</h2>{" "}

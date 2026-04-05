@@ -9,16 +9,17 @@ import AddToCart from "../../components/AddToCart";
 export default function ProductPage({ params }) {
   const { id } = React.use(params);
 
-  const [product, setProduct] = useState("");
+  const [product, setProduct] = useState([]);
   const [image, setImage] = useState("");
 
   useEffect(() => {
     async function fetchProduct() {
       const res = await fetch(`https://dummyjson.com/products/${id}`);
       const data = await res.json();
+      console.log(data);
 
       setProduct(data);
-      setImage(data.thumbnail);
+      setImage(data.images);
     }
 
     fetchProduct();
@@ -34,7 +35,7 @@ export default function ProductPage({ params }) {
 
       <div>
         <img
-          src={image || product.thumbnail}
+          src={image || product.image}
           alt={product.title}
           className="h-auto max-sm:w-full sm:w-180 md:w-190 lg:w-[72vw] object-cover rounded bg-[#e6e6e6]"
           loading="eager"
@@ -58,7 +59,7 @@ export default function ProductPage({ params }) {
         </h2>
         <div className="max-sm:hidden">
           <PinturaEditor imageUrl={image} setImage={setImage} />
-          <AddToCart />
+          <AddToCart product={product}/>
         </div>
       </div>
     </div>

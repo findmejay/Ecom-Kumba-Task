@@ -4,6 +4,7 @@ import { useState } from "react"
 
 export default function AddToCart({product}){
     const [added, setAdded] = useState(false);
+    console.log(product)
 
     const handleAdd = ()=>{
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
